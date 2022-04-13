@@ -7,6 +7,25 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+av <- read.csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/avengers/avengers.csv", stringsAsFactors = FALSE)
 ```
+
+```{r}
+av1 = av %>% gather(key = Time, value = Death, c(11, 13, 15, 17, 19))
+av1 = av1 %>% mutate(Time = parse_number(Time))
+
+
+
+replace(av1$Death, av1$Death == "", NA)
+
+av2 = av1 %>% select(Name.Alias, Time, Death)
+av3 = av %>% gather(key = Time, value = Return, c(12, 14, 16, 18, 20))
+av3 = av3 %>% mutate(Time = parse_number(Time))
+av4 = av3 %>% select(Name.Alias, Time, Return)
+
+av.neat = left_join(av4, av2, by = c("Name.Alias", "Time"))
+```
+
 
 
