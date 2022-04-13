@@ -34,3 +34,16 @@ av3$Return = replace(av3$Return, av3$Return == "", NA)
 
 ```
 
+The following statement from the FiveThirtyEight, examined by Nathan:
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
