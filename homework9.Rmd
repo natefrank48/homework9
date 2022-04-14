@@ -32,17 +32,37 @@ av3 = left_join(av1, av2, by=c("Name.Alias", "Time"))
 av3$Death = replace(av3$Death, av3$Death == "", NA)
 av3$Return = replace(av3$Return, av3$Return == "", NA)
 
+head(av3)
 ```
 
 The following statement from the FiveThirtyEight, examined by Nathan:
-
+There’s a 2-in-3 chance that a member of the Avengers returned from their first stint in the afterlife, but only a 50 percent chance they recovered from a second or third death.
 ```{r}
 
+diedOnce = av3 %>% filter(Death == "YES", Time == 1)
+returnedOnce = diedOnce %>% filter(Return == "YES")
+nrow(returnedOnce) / nrow(diedOnce)
+
+diedTwice = av3 %>% filter(Death == "YES", Time == 2)
+returnedTwice = diedTwice %>% filter(Return == "YES")
+nrow(returnedTwice) / nrow(diedTwice)
+
+diedThrice = av3 %>% filter(Death == "YES", Time == 3)
+returnedThrice = diedThrice %>% filter(Return == "YES")
+nrow(returnedThrice) / nrow(diedThrice)
 ```
 
+The statement claimed that Avengers have a 2/3 chance of coming back after they died, but the code shows that the real chance was about 70% which is slightly higher but still very close to the claimed value. The percentage of Avengers that cam back after their 2nd and 3rd deaths were 53% and 50% respectively. These values are incredibly close to the statement that the Avengers had a 1/2 chance of returning from a 2nd or 3rd death.
 
 
+Yen:
+"The MVP of the Earth-616 Marvel Universe Avengers has to be Jocasta — an android based on Janet van Dyne and built by Ultron — who has been destroyed five times and then recovered five times."
 
+```{r}
+av3 %>% filter(Name.Alias == "Jocasta")
+```
+
+From the above we gathered that Jocasta died five times and returned after every deaths.
 
 
 

@@ -185,7 +185,30 @@ av2 = av2 %&gt;% mutate(Time = parse_number(Time))
 av3 = left_join(av1, av2, by=c(&quot;Name.Alias&quot;, &quot;Time&quot;))
 
 av3$Death = replace(av3$Death, av3$Death == &quot;&quot;, NA)
-av3$Return = replace(av3$Return, av3$Return == &quot;&quot;, NA)</code></pre>
+av3$Return = replace(av3$Return, av3$Return == &quot;&quot;, NA)
+
+head(av3)</code></pre>
+<pre><code>##                    Name.Alias Time Death Return
+## 1   Henry Jonathan &quot;Hank&quot; Pym    1   YES     NO
+## 2              Janet van Dyne    1   YES    YES
+## 3 Anthony Edward &quot;Tony&quot; Stark    1   YES    YES
+## 4         Robert Bruce Banner    1   YES    YES
+## 5                Thor Odinson    1   YES    YES
+## 6      Richard Milhouse Jones    1    NO   &lt;NA&gt;</code></pre>
+<p>The following statement from the FiveThirtyEight, examined by Nathan: There’s a 2-in-3 chance that a member of the Avengers returned from their first stint in the afterlife, but only a 50 percent chance they recovered from a second or third death.</p>
+<pre class="r"><code>diedOnce = av3 %&gt;% filter(Death == &quot;YES&quot;, Time == 1)
+returnedOnce = diedOnce %&gt;% filter(Return == &quot;YES&quot;)
+nrow(returnedOnce) / nrow(diedOnce)</code></pre>
+<pre><code>## [1] 0.6984127</code></pre>
+<pre class="r"><code>diedTwice = av3 %&gt;% filter(Death == &quot;YES&quot;, Time == 2)
+returnedTwice = diedTwice %&gt;% filter(Return == &quot;YES&quot;)
+nrow(returnedTwice) / nrow(diedTwice)</code></pre>
+<pre><code>## [1] 0.5333333</code></pre>
+<pre class="r"><code>diedThrice = av3 %&gt;% filter(Death == &quot;YES&quot;, Time == 3)
+returnedThrice = diedThrice %&gt;% filter(Return == &quot;YES&quot;)
+nrow(returnedThrice) / nrow(diedThrice)</code></pre>
+<pre><code>## [1] 0.5</code></pre>
+<p>The statement claimed that Avengers have a 2/3 chance of coming back after they died, but the code shows that the real chance was about 70% which is slightly higher but still very close to the claimed value. The percentage of Avengers that cam back after their 2nd and 3rd deaths were 53% and 50% respectively. These values are incredibly close to the statement that the Avengers had a 1/2 chance of returning from a 2nd or 3rd death.</p>
 
 
 
