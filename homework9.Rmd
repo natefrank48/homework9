@@ -1,13 +1,19 @@
 ---
 title: "homework9"
-author: "Nathan Frank"
+author: "Nathan Frank and Yen Wang"
 date: "3/30/2022"
 output: html_document
 ---
 
+Team members: Nathan Frank and Yen Wang
+Link to repo: https://github.com/natefrank48/homework9 
+
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+#<<<<<<< HEAD
 av <- read.csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/avengers/avengers.csv", stringsAsFactors = FALSE)
 ```
 
@@ -26,6 +32,39 @@ av4 = av3 %>% select(Name.Alias, Time, Return)
 
 av.neat = left_join(av4, av2, by = c("Name.Alias", "Time"))
 ```
+=======
+```
+
+Data Tidying
+
+```{r}
+av <- read.csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/avengers/avengers.csv", stringsAsFactors = FALSE)
+
+av0 = av %>% filter(Name.Alias != "", Name.Alias != "Vance Astrovik")
+
+av1 <- av0 %>% gather(key = Time, value = Death, c(11,13,15,17,19)) %>% select(Name.Alias, Time, Death)
+av2 <- av0 %>% gather(key = Time, value = Return, c(12,14,16,18,20))  %>% select(Name.Alias, Time, Return)
+av1 = av1 %>% mutate(Time = parse_number(Time))
+av2 = av2 %>% mutate(Time = parse_number(Time))
+
+av3 = left_join(av1, av2, by=c("Name.Alias", "Time"))
+
+av3$Death = replace(av3$Death, av3$Death == "", NA)
+av3$Return = replace(av3$Return, av3$Return == "", NA)
+
+```
+
+The following statement from the FiveThirtyEight, examined by Nathan:
+
+```{r}
+
+```
+
+
+
+
+
+>>>>>>> ae768a1e8492ab1b67866922971020e288ed706f
 
 
 
