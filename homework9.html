@@ -369,93 +369,8 @@ summary {
 </div>
 
 
-<p>Team members: Nathan Frank and Yen Wang Link to repo: <a href="https://github.com/natefrank48/homework9" class="uri">https://github.com/natefrank48/homework9</a></p>
-<pre class="r"><code>av1 = av %&gt;% gather(key = Time, value = Death, c(11, 13, 15, 17, 19))
-av1 = av1 %&gt;% mutate(Time = parse_number(Time))
-
-
-
-replace(av1$Death, av1$Death == &quot;&quot;, NA)</code></pre>
-<pre><code>##   [1] &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;NO&quot; 
-##  [13] &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot; &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;NO&quot; 
-##  [25] &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot; 
-##  [37] &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot;
-##  [49] &quot;NO&quot;  &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot;
-##  [61] &quot;NO&quot;  &quot;YES&quot; &quot;YES&quot; &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot; 
-##  [73] &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;YES&quot; &quot;YES&quot;
-##  [85] &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;NO&quot; 
-##  [97] &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;NO&quot; 
-## [109] &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot;
-## [121] &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;YES&quot;
-## [133] &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot;
-## [145] &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; &quot;YES&quot;
-## [157] &quot;YES&quot; &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;YES&quot; &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot; 
-## [169] &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  &quot;NO&quot;  NA    NA    NA    NA    &quot;YES&quot; NA    NA   
-## [181] &quot;YES&quot; NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    &quot;YES&quot;
-## [193] NA    &quot;YES&quot; NA    NA    NA    NA    NA    NA    NA    NA    &quot;YES&quot; NA   
-## [205] NA    &quot;YES&quot; NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [217] NA    NA    NA    NA    NA    NA    NA    NA    &quot;YES&quot; &quot;YES&quot; &quot;YES&quot; NA   
-## [229] &quot;YES&quot; NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [241] NA    NA    NA    NA    NA    NA    &quot;YES&quot; NA    NA    &quot;NO&quot;  NA    &quot;YES&quot;
-## [253] NA    NA    &quot;YES&quot; NA    NA    NA    NA    NA    NA    &quot;YES&quot; NA    NA   
-## [265] NA    NA    NA    &quot;YES&quot; NA    NA    NA    NA    NA    NA    NA    NA   
-## [277] NA    NA    &quot;YES&quot; NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [289] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [301] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [313] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [325] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [337] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [349] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [361] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [373] NA    NA    NA    &quot;YES&quot; NA    NA    &quot;YES&quot; NA    NA    NA    NA    NA   
-## [385] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [397] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [409] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [421] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [433] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [445] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [457] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [469] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [481] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [493] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [505] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [517] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [529] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [541] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    &quot;YES&quot;
-## [553] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [565] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [577] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [589] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [601] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [613] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [625] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [637] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [649] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [661] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [673] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [685] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [697] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [709] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [721] NA    NA    NA    NA    &quot;YES&quot; NA    NA    NA    NA    NA    NA    NA   
-## [733] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [745] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [757] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [769] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [781] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [793] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [805] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [817] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [829] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [841] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [853] NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-## [865] NA</code></pre>
-<pre class="r"><code>av2 = av1 %&gt;% select(Name.Alias, Time, Death)
-av3 = av %&gt;% gather(key = Time, value = Return, c(12, 14, 16, 18, 20))
-av3 = av3 %&gt;% mutate(Time = parse_number(Time))
-av4 = av3 %&gt;% select(Name.Alias, Time, Return)
-
-av.neat = left_join(av4, av2, by = c(&quot;Name.Alias&quot;, &quot;Time&quot;))</code></pre>
-<p>======= ```</p>
+<p>Team members: Nathan Frank and Yen Wang</p>
+<p>Link to repo: <a href="https://github.com/natefrank48/homework9" class="uri">https://github.com/natefrank48/homework9</a></p>
 <p>Data Tidying</p>
 <pre class="r"><code>av &lt;- read.csv(&quot;https://raw.githubusercontent.com/fivethirtyeight/data/master/avengers/avengers.csv&quot;, stringsAsFactors = FALSE)
 
@@ -469,23 +384,26 @@ av2 = av2 %&gt;% mutate(Time = parse_number(Time))
 av3 = left_join(av1, av2, by=c(&quot;Name.Alias&quot;, &quot;Time&quot;))
 
 av3$Death = replace(av3$Death, av3$Death == &quot;&quot;, NA)
-av3$Return = replace(av3$Return, av3$Return == &quot;&quot;, NA)</code></pre>
+av3$Return = replace(av3$Return, av3$Return == &quot;&quot;, NA)
+
+head(av3)</code></pre>
+<pre><code>##                    Name.Alias Time Death Return
+## 1   Henry Jonathan &quot;Hank&quot; Pym    1   YES     NO
+## 2              Janet van Dyne    1   YES    YES
+## 3 Anthony Edward &quot;Tony&quot; Stark    1   YES    YES
+## 4         Robert Bruce Banner    1   YES    YES
+## 5                Thor Odinson    1   YES    YES
+## 6      Richard Milhouse Jones    1    NO   &lt;NA&gt;</code></pre>
 <p>The following statement from the FiveThirtyEight, examined by Nathan:</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>ae768a1e8492ab1b67866922971020e288ed706f</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<p>Yen: “The MVP of the Earth-616 Marvel Universe Avengers has to be Jocasta — an android based on Janet van Dyne and built by Ultron — who has been destroyed five times and then recovered five times.”</p>
+<pre class="r"><code>av3 %&gt;% filter(Name.Alias == &quot;Jocasta&quot;)</code></pre>
+<pre><code>##   Name.Alias Time Death Return
+## 1    Jocasta    1   YES    YES
+## 2    Jocasta    2   YES    YES
+## 3    Jocasta    3   YES    YES
+## 4    Jocasta    4   YES    YES
+## 5    Jocasta    5   YES    YES</code></pre>
+<p>From the above we gathered that Jocasta died five times and returned after every deaths.</p>
 
 
 
