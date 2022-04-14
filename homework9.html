@@ -171,7 +171,8 @@ pre code {
 </div>
 
 
-<p>Team members: Nathan Frank and Yen Wang Link to repo: <a href="https://github.com/natefrank48/homework9" class="uri">https://github.com/natefrank48/homework9</a></p>
+<p>Team members: Nathan Frank and Yen Wang</p>
+<p>Link to repo: <a href="https://github.com/natefrank48/homework9" class="uri">https://github.com/natefrank48/homework9</a></p>
 <p>Data Tidying</p>
 <pre class="r"><code>av &lt;- read.csv(&quot;https://raw.githubusercontent.com/fivethirtyeight/data/master/avengers/avengers.csv&quot;, stringsAsFactors = FALSE)
 
@@ -209,6 +210,15 @@ returnedThrice = diedThrice %&gt;% filter(Return == &quot;YES&quot;)
 nrow(returnedThrice) / nrow(diedThrice)</code></pre>
 <pre><code>## [1] 0.5</code></pre>
 <p>The statement claimed that Avengers have a 2/3 chance of coming back after they died, but the code shows that the real chance was about 70% which is slightly higher but still very close to the claimed value. The percentage of Avengers that cam back after their 2nd and 3rd deaths were 53% and 50% respectively. These values are incredibly close to the statement that the Avengers had a 1/2 chance of returning from a 2nd or 3rd death.</p>
+<p>Yen: “The MVP of the Earth-616 Marvel Universe Avengers has to be Jocasta — an android based on Janet van Dyne and built by Ultron — who has been destroyed five times and then recovered five times.”</p>
+<pre class="r"><code>av3 %&gt;% filter(Name.Alias == &quot;Jocasta&quot;)</code></pre>
+<pre><code>##   Name.Alias Time Death Return
+## 1    Jocasta    1   YES    YES
+## 2    Jocasta    2   YES    YES
+## 3    Jocasta    3   YES    YES
+## 4    Jocasta    4   YES    YES
+## 5    Jocasta    5   YES    YES</code></pre>
+<p>From the above we gathered that Jocasta died five times and returned after every deaths.</p>
 
 
 
